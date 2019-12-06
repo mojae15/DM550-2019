@@ -68,6 +68,7 @@ public class Queue<E> implements MyCollection<E>, Iterable<E> {
             return next;
         }
 
+
     }
 
     /**
@@ -91,7 +92,7 @@ public class Queue<E> implements MyCollection<E>, Iterable<E> {
             Node<E> newNode = new Node<E>(e, null);
             this.first = newNode;
         } else {
-            this.first.add(e);   
+            this.first.add(e);
         }
     }
 
@@ -135,6 +136,30 @@ public class Queue<E> implements MyCollection<E>, Iterable<E> {
         return new QueueIterator();
     }
 
+    public Queue<E> copy(){
+
+        Queue<E> cpy = new Queue<>();
+
+        for (E e : this){
+            cpy.add(e);
+        }
+
+        return cpy;
+
+    }
+
+    public String toString(){
+
+        String res = "";
+
+        for (E e : this){
+            res = res + e + " ";
+        }
+
+
+        return res;
+    }
+
     /*
      * Basic testing.
      */
@@ -143,6 +168,15 @@ public class Queue<E> implements MyCollection<E>, Iterable<E> {
         q.add(3);
         q.add(1);
         q.add(2);
+
+
+        Queue<Integer> p = q.copy();
+
+        for (Integer i : p){
+            System.out.println("Iterating: " + i);
+        }
+
+        System.out.println(q);
 
         // System.out.println("Next: " + q.next());
         // System.out.println("Size: " + q.size());
@@ -157,9 +191,7 @@ public class Queue<E> implements MyCollection<E>, Iterable<E> {
         // q.add(2);
         // q.add(3);
         // q.add(4);
-        // System.out.println(q);
-        // for (Integer i : q)
-        //     System.out.println("Iterating: " + i);
+
         // q.next();
         // q.next();
         // System.out.println("Next: " + q.next());
