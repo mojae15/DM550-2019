@@ -42,6 +42,10 @@ public class Queue<E> implements MyCollection<E>, Iterable<E> {
             }
         }
 
+        public boolean equals(Node<?> n){
+            return (n != null && this.value == n.value);
+        }
+
 
     }
 
@@ -136,6 +140,55 @@ public class Queue<E> implements MyCollection<E>, Iterable<E> {
         return new QueueIterator();
     }
 
+    public int hashcode(){
+        return Objects.hash(first);
+    }
+
+
+    public boolean equals(Object other){
+
+        if (!(other instanceof Queue)){
+            return false;
+        }
+
+        Queue<?> otherQueue = (Queue<?>) other;
+
+        if (this.first == null){
+            return (otherQueue.first == null);
+        }
+
+        Node<E> t1 = this.first;
+        Node<?> t2 = otherQueue.first;
+
+        boolean equal = true;
+        // Queue<E> thisCopy = this.copy();
+        // Queue<?> otherCopy = otherQueue.copy();
+
+        while (equal){
+            equal = t1.equals(t2);
+            t1 = t1.next;
+            t2 = t2.next;
+            if (t1 == null){
+                return (t2 == null);
+            }
+
+            // if (thisCopy.first.next == null && otherCopy.first.next == null){
+            //     return thisCopy.first.equals(otherCopy.first);
+            // }
+            // if (thisCopy.first.equals(otherCopy.first)){
+            //     thisCopy.first = thisCopy.first.next;
+            //     otherCopy.first = otherCopy.first.next;
+            // } else {
+            //     return false;
+            // }
+        }
+
+        return equal;
+
+
+
+    }
+
     public Queue<E> copy(){
 
         Queue<E> cpy = new Queue<>();
@@ -164,7 +217,7 @@ public class Queue<E> implements MyCollection<E>, Iterable<E> {
      * Basic testing.
      */
     public static void main(String[] args) {
-        Queue<Integer> q = new Queue<Integer>();
+        Queue<Integer> q = new Queue<>();
         q.add(3);
         q.add(1);
         q.add(2);
@@ -176,7 +229,7 @@ public class Queue<E> implements MyCollection<E>, Iterable<E> {
             System.out.println("Iterating: " + i);
         }
 
-        System.out.println(q);
+        System.out.println(q.equals(p));
 
         // System.out.println("Next: " + q.next());
         // System.out.println("Size: " + q.size());
