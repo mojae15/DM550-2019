@@ -1,0 +1,39 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TicTacToeClient<DM550-2019_60aaf908>",
+            "request": "launch",
+            "mainClass": "TicTacToeClient",
+            "projectName": "DM550-2019_60aaf908"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ImageCoder",
+            "request": "launch",
+            "mainClass": "ImageCoder"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ScrambleIt",
+            "request": "launch",
+            "mainClass": "ScrambleIt"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-section5",
+            "request": "launch",
+            "mainClass": "section5"
+        }
+    ]
+}
